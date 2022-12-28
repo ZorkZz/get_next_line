@@ -6,7 +6,7 @@
 /*   By: astachni <astachni@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 23:37:14 by astachni          #+#    #+#             */
-/*   Updated: 2022/12/16 15:33:58 by astachni         ###   ########.fr       */
+/*   Updated: 2022/12/28 01:44:11 by astachni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,21 @@ size_t	verify_end(char *str, char *buffer)
 	{
 		if (str[i] == '\n')
 			return (0);
-			i++;
-	}
-	while (buffer[j] && str[i] && str[i] == buffer[j])
-	{
 		i++;
-		j++;
-		if (str[i] == '\n')
+	}
+	while (buffer[j] && str[i])
+	{
+		j = 0;
+		while (buffer[j] && str[i] && str[i] == buffer[j])
+		{
+			i++;
+			j++;
+			if (str[i] == '\n' && buffer[j] == '\n')
+				return (j + 1);
+		}
+		if (str[i] == '\n' && buffer[j] == '\n')
 			return (j + 1);
+		i++;
 	}
 	return (j);
 }
