@@ -6,7 +6,7 @@
 /*   By: astachni <astachni@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 23:35:22 by astachni          #+#    #+#             */
-/*   Updated: 2022/12/28 01:50:26 by astachni         ###   ########.fr       */
+/*   Updated: 2022/12/28 01:52:39 by astachni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ char	*get_next_line(int fd)
 		if (read_value < BUFFER_SIZE)
 			buffer[read_value] = '\0';
 		return_str = ft_strjoin(return_str, buffer);
-		buffer_index += verify_end(return_str, buffer);
+		buffer_index += verify_end(return_str, buffer); 
 		if (is_end(buffer_index, return_str) == -1)
 			break ;
 	}
