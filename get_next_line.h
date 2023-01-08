@@ -6,7 +6,7 @@
 /*   By: astachni <astachni@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 23:36:47 by astachni          #+#    #+#             */
-/*   Updated: 2022/12/28 01:10:36 by astachni         ###   ########.fr       */
+/*   Updated: 2023/01/07 15:43:23 by astachni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <fcntl.h>
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 10
+#  define BUFFER_SIZE 650
 # endif
 
 char	*get_next_line(int fd);
