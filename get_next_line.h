@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: astachni <astachni@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: astachni@student.42lyon.fr <astachni>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 17:04:55 by astachni          #+#    #+#             */
-/*   Updated: 2023/01/07 17:55:05 by astachni         ###   ########.fr       */
+/*   Updated: 2023/01/08 17:41:30 by astachni@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,6 @@
 char	*get_next_line(int fd);
 size_t	ft_strlen(char const *str);
 void	ft_bzero(char *str);
-char	*ft_strjoin(char const *s1, char const *buffer);
+char	*ft_strfjoin(char *s1, char const *buffer, int read_value);
 
 #endif

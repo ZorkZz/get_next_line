@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: astachni <astachni@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: astachni@student.42lyon.fr <astachni>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 17:04:44 by astachni          #+#    #+#             */
-/*   Updated: 2023/01/07 17:56:54 by astachni         ###   ########.fr       */
+/*   Updated: 2023/01/08 17:50:49 by astachni@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,12 @@ void	ft_bzero(char *str)
 {
 	int	i;
 
-	i = -1;
-	while (str && str[++i])
-		str[++i] = '\0';
+	i = 0;
+	while (str && str[i])
+	{
+		str[i] = '\0';
+		i++;
+	}
 }
 
 size_t	ft_strlen(char const *str)
@@ -46,7 +49,7 @@ size_t	ft_strcpy(char	*s1, char *s2)
 	return (i);
 }
 
-char	*ft_strjoin(char const *s1, char const *buffer)
+char	*ft_strfjoin(char *s1, char const *buffer, int read_value)
 {
 	char	*str;
 	int		i;
@@ -62,12 +65,14 @@ char	*ft_strjoin(char const *s1, char const *buffer)
 	str = malloc(((s1_len + ft_strlen(buffer) + 1) * sizeof(char)));
 	if (str == NULL)
 		return (NULL);
-	i = ft_strcpy((char *)s1, str);
+	i = ft_strcpy(s1, str);
 	j = 0;
-	while (buffer && buffer[j] && buffer[j] != '\n')
+	while (buffer && buffer[j] && j < read_value && buffer[j] != '\n')
 		str[i++] = buffer[j++];
 	if (buffer[j] == '\n')
 		str[i++] = '\n';
 	str[i] = 0;
+	if (s1)
+		free(s1);
 	return (str);
 }
