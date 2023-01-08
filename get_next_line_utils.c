@@ -5,49 +5,20 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: astachni <astachni@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/14 23:37:14 by astachni          #+#    #+#             */
-/*   Updated: 2023/01/07 14:19:55 by astachni         ###   ########.fr       */
+/*   Created: 2023/01/07 17:04:44 by astachni          #+#    #+#             */
+/*   Updated: 2023/01/07 17:56:54 by astachni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-size_t	verify_end(char *str, char *buffer)
-{
-	size_t	i;
-	size_t	j;
-
-	i = -1;
-	while (str[++i] != buffer[0])
-	{
-		if (str[i] == '\n')
-			return (0);
-	}
-	j = 0;
-	while (buffer[j] && str[i])
-	{
-		j = 0;
-		while (buffer[j] && str[i] && str[i] == buffer[j])
-		{
-			i++;
-			j++;
-			if (str[i] == '\n' && buffer[j] == '\n')
-				return (j + 1);
-		}
-		if (str[i] == '\n' && buffer[j] == '\n')
-			return (j + 1);
-		i++;
-	}
-	return (j);
-}
-
 void	ft_bzero(char *str)
 {
-	size_t	index;
+	int	i;
 
-	index = 0;
-	while (str && str[index])
-		str[index++] = '\0';
+	i = -1;
+	while (str && str[++i])
+		str[++i] = '\0';
 }
 
 size_t	ft_strlen(char const *str)

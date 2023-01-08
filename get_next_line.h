@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: astachni <astachni@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/14 23:36:47 by astachni          #+#    #+#             */
-/*   Updated: 2022/12/28 01:10:36 by astachni         ###   ########.fr       */
+/*   Created: 2023/01/07 17:04:55 by astachni          #+#    #+#             */
+/*   Updated: 2023/01/07 17:55:05 by astachni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,8 @@
 # endif
 
 char	*get_next_line(int fd);
+size_t	ft_strlen(char const *str);
 void	ft_bzero(char *str);
 char	*ft_strjoin(char const *s1, char const *buffer);
-size_t	verify_end(char *str, char *buffer);
-size_t	ft_strlen(char const *str);
 
 #endif
