@@ -6,7 +6,7 @@
 /*   By: astachni@student.42lyon.fr <astachni>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 17:03:49 by astachni          #+#    #+#             */
-/*   Updated: 2023/01/08 20:05:28 by astachni@st      ###   ########.fr       */
+/*   Updated: 2023/01/09 15:58:19 by astachni@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,23 +21,21 @@ size_t	take_read(char *str, char *buffer, int read_buffer, size_t read_value)
 	i = 0;
 	while (str[i])
 	{
-		while (str[i] && buffer[0] && str[i] != buffer[0])
-			i++;
 		j = 0;
 		while (str[i] && buffer[j] && str[i] == buffer[j])
 		{
 			i++;
 			j++;
 		}
+		if (str[i] && str[i] != buffer[j])
+			i = i - j + 1;
 	}
 	j += read_buffer;
-	// && j >= BUFFER_SIZE
 	if (j >= read_value)
 		j = 0;
 	return (j);
 }
 
-#include <stdio.h>
 char	*get_next_line(int fd)
 {
 	char					*str;
@@ -47,7 +45,6 @@ char	*get_next_line(int fd)
 
 	if (fd < 0)
 		return (NULL);
-	//printf("STATIC: %s|\n", buffer);
 	str = NULL;
 	while (str == NULL || str[ft_strlen(str) - 1] != '\n')
 	{
@@ -63,8 +60,6 @@ char	*get_next_line(int fd)
 		str = ft_strfjoin(str, &buffer[read_buffer], (size_t)read_value);
 		read_buffer = take_read(str, &buffer[read_buffer], read_buffer, \
 			read_value);
-		// if ((ssize_t)read_buffer == read_value && read_value < BUFFER_SIZE)
-		// 	break ;
 	}
 	return (str);
 }
