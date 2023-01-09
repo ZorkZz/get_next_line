@@ -6,7 +6,7 @@
 /*   By: astachni@student.42lyon.fr <astachni>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 17:04:44 by astachni          #+#    #+#             */
-/*   Updated: 2023/01/09 16:00:05 by astachni@st      ###   ########.fr       */
+/*   Updated: 2023/01/09 16:23:57 by astachni@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,15 @@ size_t	ft_strcpy(char	*s1, char *s2)
 {
 	int	i;
 
-	i = -1;
+	i = 0;
 	if (s1)
-		while (s1[++i])
+	{
+		while (s1[i])
+		{
 			s2[i] = s1[i];
-	if (i == -1)
-		return (0);
+			i++;
+		}
+	}
 	return (i);
 }
 
