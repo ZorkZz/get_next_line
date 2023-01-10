@@ -6,12 +6,11 @@
 /*   By: astachni@student.42lyon.fr <astachni>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 17:03:49 by astachni          #+#    #+#             */
-/*   Updated: 2023/01/09 15:58:19 by astachni@st      ###   ########.fr       */
+/*   Updated: 2023/01/10 17:37:14 by astachni@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-#include <stdio.h>
 
 size_t	take_read(char *str, char *buffer, int read_buffer, size_t read_value)
 {
