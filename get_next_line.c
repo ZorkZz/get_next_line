@@ -6,7 +6,7 @@
 /*   By: astachni@student.42lyon.fr <astachni>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 17:03:49 by astachni          #+#    #+#             */
-/*   Updated: 2023/01/10 17:37:14 by astachni@st      ###   ########.fr       */
+/*   Updated: 2023/01/11 19:28:35 by astachni@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ size_t	take_read(char *str, char *buffer, int read_buffer, size_t read_value)
 	size_t	j;
 
 	i = 0;
-	while (str[i])
+	while (str && str[i])
 	{
 		j = 0;
 		while (str[i] && buffer[j] && str[i] == buffer[j])
@@ -38,7 +38,7 @@ size_t	take_read(char *str, char *buffer, int read_buffer, size_t read_value)
 char	*get_next_line(int fd)
 {
 	char					*str;
-	static char				buffer[BUFFER_SIZE + 1];
+	static char				buffer[MAX_FD][BUFFER_SIZE + 1];
 	static ssize_t			read_value;
 	static size_t			read_buffer = 0;
 
@@ -49,15 +49,15 @@ char	*get_next_line(int fd)
 	{
 		if (read_buffer == 0 || read_buffer >= BUFFER_SIZE)
 		{
-			ft_bzero(buffer);
-			read_value = read(fd, buffer, BUFFER_SIZE);
+			ft_bzero(buffer[fd]);
+			read_value = read(fd, buffer[fd], BUFFER_SIZE);
 		}
 		if (read_value == 0)
 			return (str);
 		if (read_value == -1)
-			return (ft_bzero(buffer), NULL);
-		str = ft_strfjoin(str, &buffer[read_buffer], (size_t)read_value);
-		read_buffer = take_read(str, &buffer[read_buffer], read_buffer, \
+			return (ft_bzero(buffer[fd]), NULL);
+		str = ft_strfjoin(str, &buffer[fd][read_buffer], (size_t)read_value);
+		read_buffer = take_read(str, &buffer[fd][read_buffer], read_buffer, \
 			read_value);
 	}
 	return (str);
