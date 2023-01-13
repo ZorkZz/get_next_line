@@ -6,7 +6,7 @@
 /*   By: astachni@student.42lyon.fr <astachni>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 17:03:49 by astachni          #+#    #+#             */
-/*   Updated: 2023/01/11 19:28:35 by astachni@st      ###   ########.fr       */
+/*   Updated: 2023/01/13 17:17:15 by astachni@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,12 @@ size_t	take_read(char *str, char *buffer, int read_buffer, size_t read_value)
 	return (j);
 }
 
+void	free_str(char *str)
+{
+	if (str)
+		free(str);
+}
+
 char	*get_next_line(int fd)
 {
 	char					*str;
@@ -55,7 +61,7 @@ char	*get_next_line(int fd)
 		if (read_value == 0)
 			return (str);
 		if (read_value == -1)
-			return (ft_bzero(buffer[fd]), NULL);
+			return (ft_bzero(buffer[fd]), free_str(str), NULL);
 		str = ft_strfjoin(str, &buffer[fd][read_buffer], (size_t)read_value);
 		read_buffer = take_read(str, &buffer[fd][read_buffer], read_buffer, \
 			read_value);

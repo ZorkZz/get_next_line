@@ -6,7 +6,7 @@
 /*   By: astachni@student.42lyon.fr <astachni>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 17:04:55 by astachni          #+#    #+#             */
-/*   Updated: 2023/01/11 19:02:22 by astachni@st      ###   ########.fr       */
+/*   Updated: 2023/01/13 17:14:30 by astachni@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,6 @@ char	*get_next_line(int fd);
 size_t	ft_strlen(char const *str);
 void	ft_bzero(char *str);
 char	*ft_strfjoin(char *s1, char const *buffer, int read_value);
+size_t	take_read(char *str, char *buffer, int read_buffer, size_t read_value);
 
 #endif
