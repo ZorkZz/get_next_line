@@ -6,7 +6,7 @@
 /*   By: astachni@student.42lyon.fr <astachni>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 17:04:55 by astachni          #+#    #+#             */
-/*   Updated: 2023/01/13 17:14:30 by astachni@st      ###   ########.fr       */
+/*   Updated: 2023/01/17 20:27:15 by astachni@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,6 @@
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 10
-# endif
-
-# ifndef MAX_FD
-#  define MAX_FD 1025
 # endif
 
 char	*get_next_line(int fd);
